@@ -5,5 +5,10 @@ CREATE TABLE IF NOT EXISTS migrations (
 )
 
 -- id = INT(an integer in sequential order). "INT GENERATED .... AS IDENTITY" i preferred over SERIAL which is older.
---filename = TEXT, cannot be null, must be unique
---run_on = cannot be null, a timestamp with default present time
+-- filename = TEXT, cannot be null, must be unique
+-- run_on = cannot be null, a timestamp with default present time
+
+-- id | filename            | run_on
+-- 1  | 001_create_user... | 876897987
+
+

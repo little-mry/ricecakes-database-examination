@@ -12,7 +12,7 @@ const runMigration = async () => {
   //Calls the query-function to create migrations-table
   await query(initSql);
 
-  //Creates a normalized path
+  //Creates a normalized path (where it should look after files, which is in folder /sql)
   const migrationDir = path.resolve("sql");
 
   //Reads the content of path /sql and returns an array of the files in this folder
@@ -28,8 +28,8 @@ const runMigration = async () => {
 
   // Goes through all the element in the array 'files'. Each element is assigned the variable-name 'file' during its iteration
   for (const file of files) {
-    //Calls the query-function
 
+    //Calls the query-function
     const { rows } = await query(
       //Checks if any row in the migration-table that, in the column 'filename', matches our element´s filename
       "SELECT 1 FROM migrations WHERE filename = $1",
