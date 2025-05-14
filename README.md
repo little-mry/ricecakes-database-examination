@@ -15,3 +15,4 @@ Uppgifter:
 - skapa tabeller till databasen i sql/ - Alice
 - skapa en migrate.js i src/ (med runMigration-funktion) - Maria
 - skapa server.js
+- Modules: Users(Alice), Channels(Vendela), Messages(Maria), Subscription()

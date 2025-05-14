@@ -6,4 +6,4 @@ CREATE TABLE IF NOT EXISTS migrations (
 
 -- id = INT(an integer in sequential order). "INT GENERATED .... AS IDENTITY" i preferred over SERIAL which is older.
 --filename = TEXT, cannot be null, must be unique
---run_on = cannot be null, a timestamp with default present timegit pull
+--run_on = cannot be null, a timestamp with default present time
