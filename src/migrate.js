@@ -8,6 +8,7 @@ const runMigration = async () => {
     path.resolve("./sql/000_create_migrations_table.sql"),
     "utf8"
   );
+  
   //Calls the query-function to create migrations-table
   await query(initSql);
 
