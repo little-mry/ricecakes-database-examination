@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS migrations (
     id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     filename TEXT UNIQUE NOT NULL,
-    run_on TIMESTAMP NOT NULL DEFAULT NOW()
+    run_on TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP()
 )
 
 -- id = INT(an integer in sequential order). "INT GENERATED .... AS IDENTITY" i preferred over SERIAL which is older.
