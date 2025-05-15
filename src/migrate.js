@@ -28,7 +28,7 @@ const runMigration = async () => {
     .sort();
 
   // Goes through all the element in the array 'files'. Each element is assigned the variable-name 'file' during its iteration
-  for (const file of files) {
+   for (const file of files) {
     //Calls the query-function
     const { rows } = await query(
       //Checks if any row in the migration-table that, in the column 'filename', matches our element´s filename
@@ -42,15 +42,25 @@ const runMigration = async () => {
       //Starts from the beginning of the loop
       continue;
     }
-    
+
     const sql = await readFile(path.join(migrationDir, file), "utf8");
+    console.log(`Kör migration: ${file}`);
     await query(sql);
 
-    await query("INSERT INTO migrations(filename, run_on) VALUES($1, NOW())", [
+    await query("INSERT INTO migrations(filename, run_on) VALUES($1, CURRENT_TIMESTAMP())", [
       file,
     ]);
-    console.log(`Körde migration ${file}`);
-  }
+  } 
+
+
+  console.log("Alla nya migrationer har körts");
 };
+
+if (import.meta.url === `file://${process.argv[1]}`) {
+  runMigration().catch((err) => {
+    console.error("Migrationen misslyckades", err);
+    process.exit(1);
+  });
+}
 
 export { runMigration };
