@@ -4,10 +4,14 @@ import { getAllChannels, createChannel } from "./channelModel.js";
 export async function fetchAllChannels(req, res) {
   try {
     const channels = await getAllChannels();
-    res.status(200).json(channels);
+    return res.status(200).json({
+      success: true,
+      data: channels});
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: "Något gick fel vid hämtning av kanaler" });
+    return res.status(500).json({ 
+      success: true,
+      error: "Något gick fel vid hämtning av kanaler" });
   }
 }
 
@@ -19,9 +23,13 @@ export async function addChannel(req, res) {
 
   try {
     const newChannel = await createChannel(name, owner_id);
-    res.status(201).json(newChannel);
+    return res.status(201).json({
+      success: true,
+      data: newChannel});
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: "Kunde inte skapa kanal" });
+    return res.status(500).json({ 
+      success: false,
+      error: "Kunde inte skapa kanal" });
   }
 }

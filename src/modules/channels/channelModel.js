@@ -1,5 +1,5 @@
 // modules/channelModel.js
-import { query } from "../db.js";
+import { query } from "../../db/db";
 
 export async function getAllChannels() {
   const result = await query("SELECT * FROM channels");

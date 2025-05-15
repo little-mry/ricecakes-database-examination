@@ -1,5 +1,7 @@
 import { runMigration } from "./migrate";
 import express from "express";
+import channelRoute from './modules/channels/channelRoutes'
+import messageRoute from './modules/messages/messagesRoutes'
 
 const port = process.env.PORT || 3030;
 
