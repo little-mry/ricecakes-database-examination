@@ -47,7 +47,7 @@ const runMigration = async () => {
     console.log(`Kör migration: ${file}`);
     await query(sql);
 
-    await query("INSERT INTO migrations(filename, run_on) VALUES($1, CURRENT_TIMESTAMP())", [
+    await query("INSERT INTO migrations(filename, run_on) VALUES($1, CURRENT_TIMESTAMP)", [
       file,
     ]);
   } 
