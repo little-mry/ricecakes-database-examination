@@ -6,7 +6,6 @@ import messageRoute from './modules/messages/messagesRoutes.js'
 const port = process.env.PORT || 3030;
 
 const startServer = async () => {
-  //Call to run the runMigration-function, has to be done before anything else can run
   await runMigration();
 
   const app = express();
