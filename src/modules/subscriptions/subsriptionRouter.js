@@ -1,11 +1,15 @@
 import { Router } from "express";
+import {
+  getUserSubscriptions,
+  subscribeToChannel,
+} from "./subscriptionController.js";
 
 const router = Router();
 
-//lista prenumerarioner för en användare (req.user.id (JWT))
-router.get('/', ) 
+// Hämta alla prenumerationer för en användare
+router.get("/", getUserSubscriptions);
 
-//börja prenumerera på en kanal
-router.post("/");
+// Prenumerera på en kanal
+router.post("/", subscribeToChannel);
 
-export default router
+export default router;
