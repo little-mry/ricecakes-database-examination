@@ -5,7 +5,7 @@ import {
 
 // Hämta alla prenumerationer för en användare
 export async function getUserSubscriptions(req, res) {
-  const userId = req.user?.id || req.body.user_id;
+  const userId = req.user.id ;
 
   if (!userId) {
     return res.status(401).json({ error: "Ingen användare angiven" });
@@ -22,7 +22,7 @@ export async function getUserSubscriptions(req, res) {
 
 // Prenumerera på kanal
 export async function subscribeToChannel(req, res) {
-  const userId = req.user?.id || req.body.user_id;
+  const userId = req.user.id;
   const { channel_id } = req.body;
 
   if (!userId || !channel_id) {
