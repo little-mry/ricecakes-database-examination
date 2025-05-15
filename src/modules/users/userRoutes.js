@@ -1,5 +1,7 @@
 import {Router} from 'express'
 import { signUpUser, loginUser, getUserChannels } from './userController.js'
+import authMiddleware from '../../middelware/auth.js'
+
 
 const router = Router()
 
@@ -12,7 +14,7 @@ router.post('/login', loginUser)
 router.get('/:userId', getUserInfo)
 
 //hämta alla kanaler som en användare prenumererar på
-router.get('/:userId/channels', getUserChannels)
+router.get('/:userId/channels', authMiddleware, getUserChannels)
 
 export default router;
 

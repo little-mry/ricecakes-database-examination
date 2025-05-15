@@ -6,10 +6,10 @@ export async function getAllChannels() {
   return result.rows;
 }
 
-export async function createChannel(name, owner_id) {
+export async function createChannel(name, userId) {
   const result = await query(
     "INSERT INTO channels (name, owner_id) VALUES ($1, $2) RETURNING *",
-    [name, owner_id]
+    [name, userId]
   );
   return result.rows[0];
 }

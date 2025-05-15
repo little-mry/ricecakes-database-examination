@@ -23,13 +23,13 @@ export async function fetchAllChannels(req, res) {
 }
 
 export async function addChannel(req, res) {
-  const { name, owner_id } = req.body;
-  if (!name || !owner_id) {
-    return res.status(400).json({ error: "name och owner_id krävs" });
+  const { name } = req.body;
+  if (!name) {
+    return res.status(400).json({ error: "name krävs" });
   }
 
   try {
-    const newChannel = await createChannel(name, owner_id);
+    const newChannel = await createChannel(name, req.user.id);
     return res.status(201).json({
       success: true,
       data: newChannel,
@@ -82,14 +82,14 @@ export async function getMessagesInChannel(req, res) {
 
 export async function postMessageToChannel(req, res) {
   const { channelId } = req.params;
-  const { user_id, content } = req.body;
+  const { title, content } = req.body;
 
-  if (!user_id || !content) {
-    return res.status(400).json({ error: "user_id och content krävs" });
+  if (!title || !content) {
+    return res.status(400).json({ error: "title och content krävs" });
   }
 
   try {
-    const newMessage = await postMessageModel(channelId, user_id, content);
+    const newMessage = await postMessageModel(channelId, req.user.id, content);
     return res.status(201).json({
       success: true,
       data: newMessage,
