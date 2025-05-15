@@ -1,13 +1,15 @@
 import dotenv from "dotenv";
-import { fileURLToPath } from "url";
-import path from "path";
 import pg from "pg";
 
-dotenv.config({ path: path.resolve(process.cwd(), ".env") });
+dotenv.config();
 
 const { Pool } = pg;
 
 const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 
-export const query = (text, params) => pool.query(text, params);
+// Exportera både poolen och en query-funktion
+export const query = (text, params) => {
+  return pool.query(text, params);
+};
+
 export default pool;
