@@ -1,15 +1,18 @@
 import {Router} from 'express'
+import { signUpUser, loginUser, getUserChannels } from './userController.js'
 
 const router = Router()
 
 //skapa användare
-router.post('/', )
+router.post('/signup', signUpUser)
 
-//hämta user-ifo
-router.get('/:userId', )
+router.post('/login', loginUser)
+
+//hämta user-info
+router.get('/:userId', getUserInfo)
 
 //hämta alla kanaler som en användare prenumererar på
-router.get('/:userId/channels', )
+router.get('/:userId/channels', getUserChannels)
 
 export default router;
 
