@@ -2,7 +2,7 @@ import {
   fetchMessageById,
   updateMessageById,
   removeMessageById,
-} from "./messageModel";
+} from "./messageModel.js";
 
 export const getMessageById = async (req, res) => {
   const { msgId } = req.params;
