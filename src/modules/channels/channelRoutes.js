@@ -11,7 +11,7 @@ router.post("/", addChannel); // POST /channels
 router.get('/:channelId')
 
 //hämta alla meddelanden i en kanal (om användaren är prenumerant)
-router.get('/:channelId/messages')
+router.get('/:channelId/messages', )
 
 //posta nytt meddelande i en kanal
 router.post('/channelId/messages')

@@ -5,11 +5,21 @@ export const createUser = async (firstname, lastname, username, email, password)
         `INSERT INTO users
         (first_name, last_name, username, email, password)
         VALUES ($1, $2, $3, $4,$5)
-        `, [firstname, lastname, username, email, password])
-}
-export const findUserById = async () => {
+        RETURNING *`
+        , [firstname, lastname, username, email, password])
 
+        return rows[0]
 }
+
+export const findUserByUsername = async (username) => {
+  const { rows } = await query(
+    `SELECT * FROM users WHERE username = $1`,
+    [username]
+  )
+  return rows[0]
+}
+
+
 export const fetchUserChannels = async () => {
 
 }
