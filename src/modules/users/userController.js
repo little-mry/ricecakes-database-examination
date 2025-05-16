@@ -1,4 +1,8 @@
-import { createUser, fetchUserChannels, findUserByUsername } from "./userModel.js";
+import {
+  createUser,
+  findUserById,
+  findUserByUsername,
+} from "./userModel.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
@@ -42,25 +46,30 @@ export const loginUser = async (req, res) => {
   try {
     const user = await findUserByUsername(username);
     if (!user) {
-      return res.status(401).json({ error: "Ogiltig användarnamn eller lösenord" });
+      return res
+        .status(401)
+        .json({ error: "Ogiltig användarnamn eller lösenord" });
     }
 
     const matchedPassword = await bcrypt.compare(password, user.password);
     if (!matchedPassword) {
-      return res.status(401).json({ error: "Ogiltig användarnamn eller lösenord" });
+      return res
+        .status(401)
+        .json({ error: "Ogiltig användarnamn eller lösenord" });
     }
 
     const token = jwt.sign(
-      { id: user.id, username: user.username },
+      { id: user.user_id, username: user.username },
       process.env.JWT_SECRET || "dinHemligaNyckel",
       { expiresIn: "3h" }
     );
+    console.log("token-userid:", user.user_id);
 
     return res.status(200).json({
       success: true,
       data: {
         user: {
-          id: user.id,
+          id: user.user_id,
           username: user.username,
           email: user.email,
         },
@@ -77,4 +86,38 @@ export const loginUser = async (req, res) => {
   }
 };
 
-export const getUserChannels = async (req, res) => {};
+export const getUserInfo = async (req, res) => {
+  const {userId} = req.params;
+
+  const user = await findUserById(userId)
+    if (!user) {
+      return res
+        .status(401)
+        .json({ error: `Hittade ingen användare med id ${userId}`  });
+    }
+
+    return res.status(200).json({
+      success: true,
+      data: {
+        user: {
+          id: user.user_id,
+          username: user.username,
+          email: user.email,
+          firstname: user.first_name,
+          lastname: user.last_name,
+          createdAt: user.created_at,
+          updatedAt: user.updated_at
+        }
+      },
+    });
+
+  try {
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      success: false,
+      error: "Serverfel",
+    });
+  }
+};

@@ -7,12 +7,15 @@ export async function getAllChannels() {
 }
 
 export async function createChannel(name, userId) {
+  console.log('userid:', userId);
+  
   const result = await query(
-    "INSERT INTO channels (name, owner_id) VALUES ($1, $2) RETURNING *",
+    "INSERT INTO channels (channel_name, owner_id) VALUES ($1, $2) RETURNING *",
     [name, userId]
   );
   return result.rows[0];
 }
+
 export async function getChannelById(channelId) {
   const result = await query("SELECT * FROM channels WHERE channel_id = $1", [
     channelId,
@@ -22,16 +25,16 @@ export async function getChannelById(channelId) {
 
 export async function getMessagesInChannel(channelId) {
   const result = await query(
-    "SELECT * FROM messages WHERE channel_id = $1 ORDER BY created_at ASC",
+    "SELECT * FROM messages WHERE channel_id = $1 ORDER BY sent_at ASC",
     [channelId]
   );
   return result.rows;
 }
 
-export async function postMessageToChannel(channelId, userId, content) {
+export async function postMessageToChannel(channelId, userId, title, content) {
   const result = await query(
-    "INSERT INTO messages (channel_id, user_id, content) VALUES ($1, $2, $3) RETURNING *",
-    [channelId, userId, content]
+    "INSERT INTO messages (channel_id, user_id, title, content) VALUES ($1, $2, $3, $4) RETURNING *",
+    [channelId, userId, title, content]
   );
   return result.rows[0];
 }

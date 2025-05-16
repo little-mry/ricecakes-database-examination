@@ -10,15 +10,20 @@ import authMiddleware from "../../middelware/auth.js";
 
 const router = express.Router();
 
+//funkar
+//hämta alla kanaler
 router.get("/", fetchAllChannels); // GET /channels
+
+//funkar
 router.get("/:channelId", getChannelById); // GET /channels/:channelId
 
+//funkar
 router.post("/", authMiddleware, addChannel); // POST /channels
 
-//hur checkar vi att användaren är prenumerant på kanalen??
-router.get("/:channelId/messages", authMiddleware, getMessagesInChannel); // GET /channels/:channelId/messages
-//hur checkar vi att användaren är prenumerant på kanalen??
-router.post("/:channelId/messages", authMiddleware, postMessageToChannel); // POST /channels/:channelId/messages
+//hämta alla meddelanden i en specifik kanal
+//funkar
+router.get("/:channelId/messages", authMiddleware, getMessagesInChannel);
 
-
+//funkar
+router.post("/:channelId/messages", authMiddleware, postMessageToChannel); 
 export default router;

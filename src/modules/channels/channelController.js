@@ -5,6 +5,7 @@ import {
   getMessagesInChannel as getMessagesModel,
   postMessageToChannel as postMessageModel,
 } from "./channelModel.js";
+import { isUserSubscribed } from "../subscriptions/subscriptionModel.js";
 
 export async function fetchAllChannels(req, res) {
   try {
@@ -24,12 +25,15 @@ export async function fetchAllChannels(req, res) {
 
 export async function addChannel(req, res) {
   const { name } = req.body;
+  const userId = req.user.id
+  console.log('req.user: ', userId);
+  
   if (!name) {
     return res.status(400).json({ error: "name krävs" });
   }
 
   try {
-    const newChannel = await createChannel(name, req.user.id);
+    const newChannel = await createChannel(name, userId);
     return res.status(201).json({
       success: true,
       data: newChannel,
@@ -65,6 +69,16 @@ export async function getChannelById(req, res) {
 
 export async function getMessagesInChannel(req, res) {
   const { channelId } = req.params;
+  const userId = req.user.id;
+
+  //Controlls that user is subscribed
+  const subscribed = await isUserSubscribed(userId, channelId);
+  if (!subscribed) {
+    return res
+      .status(403)
+      .json({ error: "Du har inte åtkomst till denna kanal" });
+  }
+
   try {
     const messages = await getMessagesModel(channelId);
     return res.status(200).json({
@@ -83,13 +97,22 @@ export async function getMessagesInChannel(req, res) {
 export async function postMessageToChannel(req, res) {
   const { channelId } = req.params;
   const { title, content } = req.body;
+  const userId = req.user.id;
+
+  //Controlls that user is subscribed
+  const subscribed = await isUserSubscribed(userId, channelId);
+  if (!subscribed) {
+    return res
+      .status(403)
+      .json({ error: "Du har inte åtkomst till denna kanal" });
+  }
 
   if (!title || !content) {
     return res.status(400).json({ error: "title och content krävs" });
   }
 
   try {
-    const newMessage = await postMessageModel(channelId, req.user.id, content);
+    const newMessage = await postMessageModel(channelId, req.user.id, title, content);
     return res.status(201).json({
       success: true,
       data: newMessage,
