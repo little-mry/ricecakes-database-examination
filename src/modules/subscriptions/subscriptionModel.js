@@ -1,8 +1,16 @@
 import { query } from "../../db/db.js";
 
+export async function isUserSubscribed(userId, channelId) {
+  const result = await query(
+    "SELECT 1 FROM subscriptions WHERE user_id = $1 AND channel_id = $2",
+    [userId, channelId]
+  );
+  return result.rowCount > 0;
+}
+
 export async function getSubscriptionsByUser(userId) {
   const result = await query(
-    `SELECT s.subscription_id, c.channel_id, c.channel_name, c.owner_id
+    `SELECT c.channel_id, c.channel_name, s.user_id
      FROM subscriptions s
      JOIN channels c ON s.channel_id = c.channel_id
      WHERE s.user_id = $1`,
@@ -21,3 +29,4 @@ export async function addSubscription(userId, channelId) {
   );
   return result.rows[0];
 }
+

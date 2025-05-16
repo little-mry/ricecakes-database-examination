@@ -20,6 +20,10 @@ export const findUserByUsername = async (username) => {
 }
 
 
-export const fetchUserChannels = async () => {
-
+export const findUserById = async (userId) => {
+  const { rows } = await query(
+    `SELECT * FROM users WHERE user_id = $1`,
+    [userId]
+  )
+  return rows[0]
 }

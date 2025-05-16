@@ -10,9 +10,11 @@ const router = Router();
 router.use(authMiddleware)
 
 // Hämta alla prenumerationer för en användare
+//funkar
 router.get("/", getUserSubscriptions);
 
 // Prenumerera på en kanal
+//funkar
 router.post("/", subscribeToChannel);
 
 export default router;
