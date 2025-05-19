@@ -1,14 +1,5 @@
 import { query } from "../../db/db.js";
 
-// Kollar om en viss användare redan är prenumerant på en viss kanal
-export async function isUserSubscribed(userId, channelId) {
-  const result = await query("SELECT 1 FROM subscriptions WHERE user_id = $1 AND channel_id = $2", [
-    userId,
-    channelId,
-  ]);
-  // Returnerar true om det finns en match i subscriptions-tabellen
-  return result.rowCount > 0;
-}
 
 // Hämtar alla kanaler som en specifik användare är prenumerant på
 export async function getSubscriptionsByUser(userId) {
