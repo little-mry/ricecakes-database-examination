@@ -22,30 +22,6 @@ export async function fetchAllChannels(req, res) {
   }
 }
 
-export async function addChannel(req, res) {
-  const { name } = req.body;
-  const userId = req.user.id
-  console.log('req.user: ', userId);
-  
-  if (!name) {
-    return res.status(400).json({ error: "name krävs" });
-  }
-
-  try {
-    const newChannel = await createChannel(name, userId);
-    return res.status(201).json({
-      success: true,
-      data: newChannel,
-    });
-  } catch (err) {
-    console.error(err);
-    return res.status(500).json({
-      success: false,
-      error: "Kunde inte skapa kanal",
-    });
-  }
-}
-
 export async function getChannelById(req, res) {
   const { channelId } = req.params;
   try {
@@ -66,10 +42,32 @@ export async function getChannelById(req, res) {
   }
 }
 
+export async function addChannel(req, res) {
+  const { channel_name } = req.body;
+  const userId = req.user.id
+  console.log('req.user: ', userId);
+  
+  if (!channel_name) {
+    return res.status(400).json({ error: "name krävs" });
+  }
+
+  try {
+    const newChannel = await createChannel(channel_name, userId);
+    return res.status(201).json({
+      success: true,
+      data: newChannel,
+    });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({
+      success: false,
+      error: "Kunde inte skapa kanal",
+    });
+  }
+}
+
 export async function getMessagesInChannel(req, res) {
   const { channelId } = req.params;
-  const userId = req.user.id;
-
 
   try {
     const messages = await getMessagesModel(channelId);
@@ -89,7 +87,6 @@ export async function getMessagesInChannel(req, res) {
 export async function postMessageToChannel(req, res) {
   const { channelId } = req.params;
   const { title, content } = req.body;
-  const userId = req.user.id;
 
   if (!title || !content) {
     return res.status(400).json({ error: "title och content krävs" });

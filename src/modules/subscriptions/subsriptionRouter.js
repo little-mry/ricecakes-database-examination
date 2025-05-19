@@ -4,17 +4,17 @@ import {
   subscribeToChannel,
 } from "./subscriptionController.js";
 import authMiddleware from "../../middelware/auth.js";
+import validate from '../../middelware/validate.js'
+import { subscribeSchema } from "../../validation/subscriptionValidation.js";
 
 const router = Router();
 
 router.use(authMiddleware)
 
 // Hämta alla prenumerationer för en användare
-//funkar
 router.get("/", getUserSubscriptions);
 
 // Prenumerera på en kanal
-//funkar
-router.post("/", subscribeToChannel);
+router.post("/", validate(subscribeSchema, "body"), subscribeToChannel);
 
 export default router;

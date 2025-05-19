@@ -8,33 +8,38 @@ import {
 } from "./channelController.js";
 import authMiddleware from "../../middelware/auth.js";
 import { checkSubscription } from "../../middelware/checkSubscription.js";
+import validate from '../../middelware/validate.js'
+import { addChannelSchema, channelIdSchema } from "../../validation/channelValidation.js";
+import { postMessageSchema } from "../../validation/messageValidation.js";
 
 const router = express.Router();
 
-//funkar
+
 //hämta alla kanaler
-router.get("/", fetchAllChannels); // GET /channels
+router.get("/", fetchAllChannels); 
 
-//funkar
-router.get("/:channelId", getChannelById); // GET /channels/:channelId
+//hämta kanal utifrån ID
+router.get("/:channelId", validate(channelIdSchema, 'params'), getChannelById); 
 
-//funkar
-router.post("/", authMiddleware, addChannel); // POST /channels
+//skapa en kanal
+router.post("/", validate(addChannelSchema, 'body'), authMiddleware, addChannel); 
 
 //hämta alla meddelanden i en specifik kanal
-//funkar
 router.get(
   "/:channelId/messages",
   authMiddleware,
   checkSubscription,
+  validate(channelIdSchema, 'params'), 
   getMessagesInChannel
 );
 
-//funkar
+//poata ett meddelande i en kanal
 router.post(
   "/:channelId/messages",
   authMiddleware,
   checkSubscription,
+  validate(channelIdSchema, 'params'), 
+  validate(postMessageSchema, 'body'), 
   postMessageToChannel
 );
 export default router;
