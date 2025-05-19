@@ -1,20 +1,29 @@
 import { Router } from "express";
-import { getMessageById, changeMessageById, deleteMessageById } from "./messageController.js";
+import {
+  getMessageById,
+  changeMessageById,
+  deleteMessageById,
+} from "./messageController.js";
 import authMiddleware from "../../middelware/auth.js";
+import validate from "../../middelware/validate.js";
+import {
+  messageIdSchema,
+  messageSchema,
+} from "../../validation/messageValidation.js";
 
 const router = Router();
 
-router.use(authMiddleware)
+router.use(authMiddleware);
 
-//funkar
-router.get("/:msgId", getMessageById);
+router.get("/:msgId", validate(messageIdSchema, "params"), getMessageById);
 
-//funkar
-router.patch("/:msgId", changeMessageById);
+router.patch(
+  "/:msgId",
+  validate(messageIdSchema, "params"),
+  validate(messageSchema, "body"),
+  changeMessageById
+);
 
-//funkar
-router.delete('/:msgId', deleteMessageById)
+router.delete("/:msgId", validate(messageIdSchema, "params"), deleteMessageById);
 
-export default router
-
-
+export default router;

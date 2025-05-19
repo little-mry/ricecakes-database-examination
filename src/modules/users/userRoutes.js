@@ -1,21 +1,21 @@
-import {Router} from 'express'
-import { signUpUser, loginUser, getUserInfo } from './userController.js'
+import { Router } from "express";
+import { signUpUser, loginUser, getUserInfo } from "./userController.js";
+import validate from "../../middelware/validate.js";
+import {
+  createUserSchema,
+  loginUserSchema,
+  userIdSchema,
+} from "../../validation/userValidation.js";
 
-
-const router = Router()
+const router = Router();
 
 //skapa användare
-//funkar
-router.post('/signup', signUpUser)
+router.post("/signup", validate(createUserSchema, "body"), signUpUser);
 
-//funkar
-router.post('/login', loginUser)
+//logga in användare
+router.post("/login", validate(loginUserSchema, "body"), loginUser);
 
 //hämta user-info
-//funkar
-router.get('/:userId', getUserInfo)
-
-
+router.get("/:userId", validate(userIdSchema, "params"), getUserInfo);
 
 export default router;
-
