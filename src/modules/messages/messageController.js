@@ -1,18 +1,16 @@
-import {
-  fetchMessageById,
-  updateMessageById,
-  removeMessageById,
-} from "./messageModel.js";
+import { fetchMessageById, updateMessageById, removeMessageById } from "./messageModel.js";
 
+// Hämtar ett specifikt meddelande som tillhör den inloggade användaren
 export const getMessageById = async (req, res) => {
   const { msgId } = req.params;
 
   try {
+    // Hämtar meddelandet med angivet ID och kontrollerar att det tillhör användaren
     const [message] = await fetchMessageById(msgId, req.user.id);
     if (!message) {
       return res.status(404).json({ error: "Inget meddelande hittades" });
     }
-
+    // Skickar tillbaka meddelandet om det hittas
     return res.status(200).json({
       success: true,
       data: message,
@@ -25,10 +23,13 @@ export const getMessageById = async (req, res) => {
     });
   }
 };
+
+// Uppdatera ett meddelande
 export const changeMessageById = async (req, res) => {
   const { msgId } = req.params;
   const { title, content } = req.body;
   try {
+    // Uppdatera titel och innehåll på ett meddelande
     const [updatedMessage] = await updateMessageById(msgId, req.user.id, {
       title,
       content,
@@ -36,7 +37,7 @@ export const changeMessageById = async (req, res) => {
     if (!updatedMessage) {
       return res.status(404).json({ error: "Inget meddelande uppdaterades" });
     }
-
+    // Skickar tillbaka det uppdaterade meddelandet
     return res.status(200).json({
       success: true,
       data: updatedMessage,
@@ -50,6 +51,7 @@ export const changeMessageById = async (req, res) => {
   }
 };
 
+// Radera ett meddelande
 export const deleteMessageById = async (req, res) => {
   const { msgId } = req.params;
   try {

@@ -1,5 +1,6 @@
 import { query } from "../../db/db.js";
 
+// Letar upp ett specifikt meddelande som tillhör en viss användare
 export const fetchMessageById = async (msgId, userId) => {
   const { rows } = await query(
     `SELECT * FROM messages 
@@ -8,9 +9,10 @@ export const fetchMessageById = async (msgId, userId) => {
     [msgId, userId]
   );
 
-  return rows;
+  return rows; // Skickar tillbaka det hittade meddelandet (eller tomt resultat)
 };
 
+// Ändrar titel och innehåll för ett meddelande
 export const updateMessageById = async (msgId, userId, { title, content }) => {
   const { rows } = await query(
     `UPDATE messages 
@@ -19,19 +21,20 @@ export const updateMessageById = async (msgId, userId, { title, content }) => {
     updated_at= now() 
     WHERE message_id = $1
     AND user_id = $2 
-    RETURNING *`,
+    RETURNING *`, // Ger tillbaka det uppdaterade meddelandet
     [msgId, userId, title, content]
   );
 
   return rows;
 };
 
+// Tar bort ett meddelande från databasen
 export const removeMessageById = async (msgId, userId) => {
   const { rows } = await query(
     `DELETE FROM messages 
     WHERE message_id = $1
     AND user_id = $2
-    RETURNING *`,
+    RETURNING *`, // Returnerar meddelandet som raderades
     [msgId, userId]
   );
 
