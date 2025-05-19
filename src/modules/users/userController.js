@@ -89,6 +89,7 @@ export const loginUser = async (req, res) => {
 export const getUserInfo = async (req, res) => {
   const {userId} = req.params;
 
+  try {
   const user = await findUserById(userId)
     if (!user) {
       return res
@@ -111,7 +112,6 @@ export const getUserInfo = async (req, res) => {
       },
     });
 
-  try {
 
   } catch (error) {
     console.error(error);
