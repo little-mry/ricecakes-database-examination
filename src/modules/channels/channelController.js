@@ -5,7 +5,6 @@ import {
   getMessagesInChannel as getMessagesModel,
   postMessageToChannel as postMessageModel,
 } from "./channelModel.js";
-import { isUserSubscribed } from "../subscriptions/subscriptionModel.js";
 
 export async function fetchAllChannels(req, res) {
   try {
@@ -71,13 +70,6 @@ export async function getMessagesInChannel(req, res) {
   const { channelId } = req.params;
   const userId = req.user.id;
 
-  //Controlls that user is subscribed
-  const subscribed = await isUserSubscribed(userId, channelId);
-  if (!subscribed) {
-    return res
-      .status(403)
-      .json({ error: "Du har inte åtkomst till denna kanal" });
-  }
 
   try {
     const messages = await getMessagesModel(channelId);
@@ -98,14 +90,6 @@ export async function postMessageToChannel(req, res) {
   const { channelId } = req.params;
   const { title, content } = req.body;
   const userId = req.user.id;
-
-  //Controlls that user is subscribed
-  const subscribed = await isUserSubscribed(userId, channelId);
-  if (!subscribed) {
-    return res
-      .status(403)
-      .json({ error: "Du har inte åtkomst till denna kanal" });
-  }
 
   if (!title || !content) {
     return res.status(400).json({ error: "title och content krävs" });
