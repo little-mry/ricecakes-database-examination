@@ -7,6 +7,7 @@ import {
   postMessageToChannel,
 } from "./channelController.js";
 import authMiddleware from "../../middelware/auth.js";
+import { checkSubscription } from "../../middelware/checkSubscription.js";
 
 const router = express.Router();
 
@@ -22,8 +23,18 @@ router.post("/", authMiddleware, addChannel); // POST /channels
 
 //hämta alla meddelanden i en specifik kanal
 //funkar
-router.get("/:channelId/messages", authMiddleware, getMessagesInChannel);
+router.get(
+  "/:channelId/messages",
+  authMiddleware,
+  checkSubscription,
+  getMessagesInChannel
+);
 
 //funkar
-router.post("/:channelId/messages", authMiddleware, postMessageToChannel); 
+router.post(
+  "/:channelId/messages",
+  authMiddleware,
+  checkSubscription,
+  postMessageToChannel
+);
 export default router;
