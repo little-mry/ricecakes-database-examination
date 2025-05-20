@@ -1,4 +1,6 @@
 import { query } from "../db/db.js";
+
+// Middleware som kollar om en användare är prenumererad på en viss kanal
 export async function checkSubscription(req, res, next) {
   const userId = req.user?.id;
   const channelId = req.params.channelId || req.body.channelId;

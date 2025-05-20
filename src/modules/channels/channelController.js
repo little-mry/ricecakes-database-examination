@@ -6,6 +6,7 @@ import {
   postMessageToChannel as postMessageModel,
 } from "./channelModel.js";
 
+// Hämtar alla kanaler från databasen
 export async function fetchAllChannels(req, res) {
   try {
     const channels = await getAllChannels();
@@ -22,6 +23,7 @@ export async function fetchAllChannels(req, res) {
   }
 }
 
+// Hämtar en specifik kanal baserat på dess ID
 export async function getChannelById(req, res) {
   const { channelId } = req.params;
   try {
@@ -42,6 +44,7 @@ export async function getChannelById(req, res) {
   }
 }
 
+// Skapar en ny kanal
 export async function addChannel(req, res) {
   const { channel_name } = req.body;
   const userId = req.user.id
@@ -66,6 +69,7 @@ export async function addChannel(req, res) {
   }
 }
 
+// Hämtar alla meddelanden från en specifik kanal
 export async function getMessagesInChannel(req, res) {
   const { channelId } = req.params;
 
@@ -84,6 +88,7 @@ export async function getMessagesInChannel(req, res) {
   }
 }
 
+// Lägger till ett nytt meddelande i en kanal
 export async function postMessageToChannel(req, res) {
   const { channelId } = req.params;
   const { title, content } = req.body;
