@@ -5,6 +5,7 @@ import {
   getMessagesInChannel as getMessagesModel,
   postMessageToChannel as postMessageModel,
 } from "./channelModel.js";
+import { addSubscription } from "../subscriptions/subscriptionController.js";
 
 // Hämtar alla kanaler från databasen
 export async function fetchAllChannels(req, res) {
