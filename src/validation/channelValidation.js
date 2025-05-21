@@ -1,4 +1,4 @@
-import joi, { string } from "joi";
+import joi from "joi";
 
 export const addChannelSchema = joi.object({
   channel_name: joi.string().min(3).max(30).required().messages({

@@ -1,4 +1,4 @@
-import joi, { any } from "joi";
+import joi from "joi";
 
 export const createUserSchema = joi.object({
   firstname: joi.string().min(1).max(20).required().messages({
