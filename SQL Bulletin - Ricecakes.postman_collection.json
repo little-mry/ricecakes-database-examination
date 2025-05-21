@@ -1,0 +1,1648 @@
+{
+	"info": {
+		"_postman_id": "a9d49f3e-aed8-49da-b115-a2f49fb52b07",
+		"name": "SQL Bulletin - Ricecakes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42119319",
+		"_collection_link": "https://bold-comet-596367.postman.co/workspace/New-Team-Workspace~fd330f74-7a7d-4467-a980-c2aba0cabfc8/collection/42119319-a9d49f3e-aed8-49da-b115-a2f49fb52b07?action=share&source=collection_link&creator=42119319"
+	},
+	"item": [
+		{
+			"name": "SIGNUP USER",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstname\": \"Kalle\",\r\n    \"lastname\": \"Kallsson\",\r\n    \"username\": \"kalle_best\",\r\n    \"email\": \"kalle_best@pellson.com\",\r\n    \"password\": \"kalle4president\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"signup"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "SIGNUP USER",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\": \"Pelle\",\r\n    \"lastname\": \"Pellsson\",\r\n    \"username\": \"pelle_best\",\r\n    \"email\": \"pelle_best@pellson.com\",\r\n    \"password\": \"pelle4president\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"signup"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"type": "text"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"type": "text"
+						},
+						{
+							"key": "Content-Length",
+							"value": "218",
+							"type": "text"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"da-ubkcJ54zO1NrcWOz0uTwEJzfvg8\"",
+							"type": "text"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 21 May 2025 08:59:29 GMT",
+							"type": "text"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"type": "text"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"user_id\": 2,\n        \"first_name\": \"Pelle\",\n        \"last_name\": \"Pellsson\",\n        \"username\": \"pelle_best\",\n        \"email\": \"pelle_best@pellson.com\",\n        \"created_at\": \"2025-05-21T08:59:29.381Z\",\n        \"updated_at\": \"2025-05-21T08:59:29.381Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "LOGIN USER",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{    \"username\": \"pelle_best\",\r\n    \"password\": \"pelle4president\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "LOGIN USER",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"pelle_best\",\r\n    \"password\": \"pelle4president\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"type": "text"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"type": "text"
+						},
+						{
+							"key": "Content-Length",
+							"value": "295",
+							"type": "text"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"127-M4JQmnrZVyZ5sRNMsSo5c2e0k7E\"",
+							"type": "text"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 21 May 2025 09:05:52 GMT",
+							"type": "text"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"type": "text"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"user\": {\n            \"id\": 2,\n            \"username\": \"pelle_best\",\n            \"email\": \"pelle_best@pellson.com\"\n        },\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJwZWxsZV9iZXN0IiwiaWF0IjoxNzQ3ODE4MzUyLCJleHAiOjE3NDc4MjkxNTJ9.XnKSHDaXRCvb-2I1uxgpL-u_zILFcGgExHneqAlSOB4\",\n        \"expiresIn\": \"3h\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "GET USERINFO",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": [
+				{
+					"name": "GET USERINFO",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"type": "text"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"type": "text"
+						},
+						{
+							"key": "Content-Length",
+							"value": "218",
+							"type": "text"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"da-e3iniYaBoIEyANaIV8wJurOXJqQ\"",
+							"type": "text"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 21 May 2025 09:09:32 GMT",
+							"type": "text"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"type": "text"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"user\": {\n            \"id\": 2,\n            \"username\": \"pelle_best\",\n            \"email\": \"pelle_best@pellson.com\",\n            \"firstname\": \"Pelle\",\n            \"lastname\": \"Pellsson\",\n            \"createdAt\": \"2025-05-21T08:59:29.381Z\",\n            \"updatedAt\": \"2025-05-21T08:59:29.381Z\"\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "CREATE CHANNEL",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJwZWxsZV9iZXN0IiwiaWF0IjoxNzQ3ODE4MzUyLCJleHAiOjE3NDc4MjkxNTJ9.XnKSHDaXRCvb-2I1uxgpL-u_zILFcGgExHneqAlSOB4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"channel_name\": \"pelles andra fiender\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/channels",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"channels"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "CREATE CHANNEL",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"channel_name\": \"pelles kompisar\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/channels",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"channels"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"type": "text"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"type": "text"
+						},
+						{
+							"key": "Content-Length",
+							"value": "126",
+							"type": "text"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"7e-gKYt61T+YTykv3e1DcGD8bKrU10\"",
+							"type": "text"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 21 May 2025 09:13:47 GMT",
+							"type": "text"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"type": "text"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"channel_id\": 6,\n        \"channel_name\": \"pelles kompisar\",\n        \"owner_id\": 2,\n        \"created_at\": \"2025-05-21T09:13:47.482Z\"\n    }\n}"
+				},
+				{
+					"name": "CREATE CHANNEL",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"channel_name\": \"pelles andra fiender\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/channels",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"channels"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"type": "text"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"type": "text"
+						},
+						{
+							"key": "Content-Length",
+							"value": "132",
+							"type": "text"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"84-RKr+hj3aZdkoFCCiGdKgDMTct+A\"",
+							"type": "text"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 21 May 2025 09:57:58 GMT",
+							"type": "text"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"type": "text"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"channel_id\": 11,\n        \"channel_name\": \"pelles andra fiender\",\n        \"owner_id\": 2,\n        \"created_at\": \"2025-05-21T09:57:58.825Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "GET ALL CHANNELS",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJwZWxsZV9iZXN0IiwiaWF0IjoxNzQ3ODE4MzUyLCJleHAiOjE3NDc4MjkxNTJ9.XnKSHDaXRCvb-2I1uxgpL-u_zILFcGgExHneqAlSOB4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/channels",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"channels"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET ALL CHANNELS",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/channels",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"channels"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"type": "text"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"type": "text"
+						},
+						{
+							"key": "Content-Length",
+							"value": "331",
+							"type": "text"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"14b-ptgEu48oGBI/F/EIzWtpNX0uO+o\"",
+							"type": "text"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 21 May 2025 09:15:37 GMT",
+							"type": "text"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"type": "text"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"channel_id\": 4,\n            \"channel_name\": \"Party-plants\",\n            \"owner_id\": 1,\n            \"created_at\": \"2025-05-16T10:10:30.641Z\"\n        },\n        {\n            \"channel_id\": 5,\n            \"channel_name\": \"Glittertussarna\",\n            \"owner_id\": 1,\n            \"created_at\": \"2025-05-16T10:11:12.136Z\"\n        },\n        {\n            \"channel_id\": 6,\n            \"channel_name\": \"pelles kompisar\",\n            \"owner_id\": 2,\n            \"created_at\": \"2025-05-21T09:13:47.482Z\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "GET CHANNEL BY ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJwZWxsZV9iZXN0IiwiaWF0IjoxNzQ3ODE4MzUyLCJleHAiOjE3NDc4MjkxNTJ9.XnKSHDaXRCvb-2I1uxgpL-u_zILFcGgExHneqAlSOB4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/channels/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"channels",
+						"6"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET CHANNEL BY ID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/channels/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"channels",
+								"6"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"type": "text"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"type": "text"
+						},
+						{
+							"key": "Content-Length",
+							"value": "126",
+							"type": "text"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"7e-gKYt61T+YTykv3e1DcGD8bKrU10\"",
+							"type": "text"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 21 May 2025 09:19:14 GMT",
+							"type": "text"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"type": "text"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"channel_id\": 6,\n        \"channel_name\": \"pelles kompisar\",\n        \"owner_id\": 2,\n        \"created_at\": \"2025-05-21T09:13:47.482Z\"\n    }\n}"
+				},
+				{
+					"name": "FELMEDDELANDE",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/channels/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"channels",
+								"7"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"type": "text"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"type": "text"
+						},
+						{
+							"key": "Content-Length",
+							"value": "31",
+							"type": "text"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1f-roWZNxiTpJMQCxNb35k8CE9Fgyk\"",
+							"type": "text"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 21 May 2025 09:22:22 GMT",
+							"type": "text"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"type": "text"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"Kanal hittades inte\"\n}"
+				},
+				{
+					"name": "FELMEDDELANDE",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/channels/hej",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"channels",
+								"hej"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"type": "text"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"type": "text"
+						},
+						{
+							"key": "Content-Length",
+							"value": "42",
+							"type": "text"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2a-T1YQdikFu8yx04RG89a8qlCiNLE\"",
+							"type": "text"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 21 May 2025 09:22:48 GMT",
+							"type": "text"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"type": "text"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"errors\": [\n        \"Id:t måste vara ett nummer\"\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "POST MESSAGE IN CHANNEL",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJwZWxsZV9iZXN0IiwiaWF0IjoxNzQ3ODE4MzUyLCJleHAiOjE3NDc4MjkxNTJ9.XnKSHDaXRCvb-2I1uxgpL-u_zILFcGgExHneqAlSOB4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"jag gillar inte:\",\r\n    \"content\": \"donald trump\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/channels/11/messages",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"channels",
+						"11",
+						"messages"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "POST MESSAGE IN CHANNEL",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"jag gillar inte:\",\r\n    \"content\": \"donald trump\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/channels/11/messages",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"channels",
+								"11",
+								"messages"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"type": "text"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"type": "text"
+						},
+						{
+							"key": "Content-Length",
+							"value": "197",
+							"type": "text"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"c5-XR1Q4utFx3bQ9eAd0KLvnO8j1o8\"",
+							"type": "text"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 21 May 2025 10:08:36 GMT",
+							"type": "text"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"type": "text"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"message_id\": 3,\n        \"title\": \"jag gillar inte:\",\n        \"content\": \"donald trump\",\n        \"channel_id\": 11,\n        \"user_id\": 2,\n        \"sent_at\": \"2025-05-21T10:08:36.333Z\",\n        \"updated_at\": \"2025-05-21T10:08:36.333Z\"\n    }\n}"
+				},
+				{
+					"name": "FELMEDDELANDE",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"jag gillar inte:\",\r\n    \"content\": \"donald trump\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/channels/10/messages",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"channels",
+								"10",
+								"messages"
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"type": "text"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"type": "text"
+						},
+						{
+							"key": "Content-Length",
+							"value": "50",
+							"type": "text"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"32-DHhK50BcctMZMye2D9J9VJKY5+Y\"",
+							"type": "text"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 21 May 2025 10:09:01 GMT",
+							"type": "text"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"type": "text"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"User is not subscribed to this channel\"\n}"
+				}
+			]
+		},
+		{
+			"name": "GET MESSAGES IN CHANNEL",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJwZWxsZV9iZXN0IiwiaWF0IjoxNzQ3ODE4MzUyLCJleHAiOjE3NDc4MjkxNTJ9.XnKSHDaXRCvb-2I1uxgpL-u_zILFcGgExHneqAlSOB4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/channels/11/messages",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"channels",
+						"11",
+						"messages"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET MESSAGES IN CHANNEL",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/channels/11/messages",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"channels",
+								"11",
+								"messages"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"type": "text"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"type": "text"
+						},
+						{
+							"key": "Content-Length",
+							"value": "377",
+							"type": "text"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"179-FeLlRGPZYCZM3ZNjT+AWmiQp+/4\"",
+							"type": "text"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 21 May 2025 10:13:56 GMT",
+							"type": "text"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"type": "text"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"message_id\": 3,\n            \"title\": \"jag gillar inte:\",\n            \"content\": \"donald trump\",\n            \"channel_id\": 11,\n            \"user_id\": 2,\n            \"sent_at\": \"2025-05-21T10:08:36.333Z\",\n            \"updated_at\": \"2025-05-21T10:08:36.333Z\"\n        },\n        {\n            \"message_id\": 4,\n            \"title\": \"jag gillar inte 2:\",\n            \"content\": \"jimmy åkesson\",\n            \"channel_id\": 11,\n            \"user_id\": 2,\n            \"sent_at\": \"2025-05-21T10:11:36.472Z\",\n            \"updated_at\": \"2025-05-21T10:11:36.472Z\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "SUBSCRIBE TO CHANNEL",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJwZWxsZV9iZXN0IiwiaWF0IjoxNzQ3ODE4MzUyLCJleHAiOjE3NDc4MjkxNTJ9.XnKSHDaXRCvb-2I1uxgpL-u_zILFcGgExHneqAlSOB4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"channel_id\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/subscriptions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"subscriptions"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "FELMEDDELANDE",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"channel_name\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/subscriptions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"subscriptions"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"type": "text"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"type": "text"
+						},
+						{
+							"key": "Content-Length",
+							"value": "32",
+							"type": "text"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"20-Vlaydh2hfss1JPpP3MDDj8O2iPs\"",
+							"type": "text"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 21 May 2025 10:19:03 GMT",
+							"type": "text"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"type": "text"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"errors\": [\n        \"Channel_id saknas\"\n    ]\n}"
+				},
+				{
+					"name": "SUBSCRIBE",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"channel_id\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/subscriptions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"subscriptions"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"type": "text"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"type": "text"
+						},
+						{
+							"key": "Content-Length",
+							"value": "95",
+							"type": "text"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"5f-SRJpHEty5LkdsXJFww5a7lBu/uI\"",
+							"type": "text"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 21 May 2025 10:19:47 GMT",
+							"type": "text"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"type": "text"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"user_id\": 2,\n        \"channel_id\": 5,\n        \"subscribed_at\": \"2025-05-21T10:19:47.940Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "GET USERS SUBSCRIPTIONS",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJwZWxsZV9iZXN0IiwiaWF0IjoxNzQ3ODE4MzUyLCJleHAiOjE3NDc4MjkxNTJ9.XnKSHDaXRCvb-2I1uxgpL-u_zILFcGgExHneqAlSOB4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/subscriptions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"subscriptions"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET USERS SUBSCRIPTIONS",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/subscriptions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"subscriptions"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"type": "text"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"type": "text"
+						},
+						{
+							"key": "Content-Length",
+							"value": "155",
+							"type": "text"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"9b-uc0CG5y0FKhSmX1AA+3uviqR5y8\"",
+							"type": "text"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 21 May 2025 10:21:25 GMT",
+							"type": "text"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"type": "text"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"channel_id\": 5,\n            \"channel_name\": \"Glittertussarna\",\n            \"user_id\": 2\n        },\n        {\n            \"channel_id\": 11,\n            \"channel_name\": \"pelles andra fiender\",\n            \"user_id\": 2\n        }\n    ]\n}"
+				},
+				{
+					"name": "TOKEN MISSING",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/subscriptions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"subscriptions"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"type": "text"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"type": "text"
+						},
+						{
+							"key": "Content-Length",
+							"value": "40",
+							"type": "text"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"28-uzS6HqS9GIueLxLijXU5RDzCZGU\"",
+							"type": "text"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 21 May 2025 10:22:10 GMT",
+							"type": "text"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"type": "text"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"Åtkomst nekad, token saknas\"\n}"
+				}
+			]
+		},
+		{
+			"name": "GET MESSAGE BY ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJwZWxsZV9iZXN0IiwiaWF0IjoxNzQ3ODE4MzUyLCJleHAiOjE3NDc4MjkxNTJ9.XnKSHDaXRCvb-2I1uxgpL-u_zILFcGgExHneqAlSOB4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/messages/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"messages",
+						"3"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET MESSAGE BY ID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/messages/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"messages",
+								"3"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"type": "text"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"type": "text"
+						},
+						{
+							"key": "Content-Length",
+							"value": "197",
+							"type": "text"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"c5-XR1Q4utFx3bQ9eAd0KLvnO8j1o8\"",
+							"type": "text"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 21 May 2025 10:24:11 GMT",
+							"type": "text"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"type": "text"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"message_id\": 3,\n        \"title\": \"jag gillar inte:\",\n        \"content\": \"donald trump\",\n        \"channel_id\": 11,\n        \"user_id\": 2,\n        \"sent_at\": \"2025-05-21T10:08:36.333Z\",\n        \"updated_at\": \"2025-05-21T10:08:36.333Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "PATCH MESSAGE",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJwZWxsZV9iZXN0IiwiaWF0IjoxNzQ3ODE4MzUyLCJleHAiOjE3NDc4MjkxNTJ9.XnKSHDaXRCvb-2I1uxgpL-u_zILFcGgExHneqAlSOB4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"jag gillar inte:\",\r\n    \"content\": \"beyonce\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/messages/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"messages",
+						"3"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "PATCH MESSAGE",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"jag gillar inte:\",\r\n    \"content\": \"beyonce\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/messages/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"messages",
+								"3"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"type": "text"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"type": "text"
+						},
+						{
+							"key": "Content-Length",
+							"value": "192",
+							"type": "text"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"c0-nBkuPjywh8N+dDVKU9uC5ktP1Hk\"",
+							"type": "text"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 21 May 2025 10:26:27 GMT",
+							"type": "text"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"type": "text"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"message_id\": 3,\n        \"title\": \"jag gillar inte:\",\n        \"content\": \"beyonce\",\n        \"channel_id\": 11,\n        \"user_id\": 2,\n        \"sent_at\": \"2025-05-21T10:08:36.333Z\",\n        \"updated_at\": \"2025-05-21T10:26:27.562Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "DELETE MESSAGE",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJwZWxsZV9iZXN0IiwiaWF0IjoxNzQ3ODE4MzUyLCJleHAiOjE3NDc4MjkxNTJ9.XnKSHDaXRCvb-2I1uxgpL-u_zILFcGgExHneqAlSOB4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/messages/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"messages",
+						"3"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "DELETE MESSAGE",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/messages/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"messages",
+								"3"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "Text",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"type": "text"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 21 May 2025 10:27:34 GMT",
+							"type": "text"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"type": "text"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		}
+	]
+}
