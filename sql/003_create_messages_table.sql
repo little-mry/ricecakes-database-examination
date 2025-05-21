@@ -1,7 +1,7 @@
 -- Skapar en tabell för meddelanden som postas i kanaler
 CREATE TABLE messages (
     message_id SERIAL PRIMARY KEY,
-    title VARCHAR(50),
+    title NVARCHAR(50),
     content TEXT NOT NULL,
     channel_id INTEGER NOT NULL,
     user_id INTEGER NOT NULL,
