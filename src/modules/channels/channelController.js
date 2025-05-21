@@ -47,15 +47,16 @@ export async function getChannelById(req, res) {
 // Skapar en ny kanal
 export async function addChannel(req, res) {
   const { channel_name } = req.body;
-  const userId = req.user.id
-  console.log('req.user: ', userId);
-  
+  const userId = req.user.id;
+
   if (!channel_name) {
     return res.status(400).json({ error: "name krävs" });
   }
 
   try {
     const newChannel = await createChannel(channel_name, userId);
+    await addSubscription(userId, newChannel.id);
+
     return res.status(201).json({
       success: true,
       data: newChannel,
@@ -98,7 +99,12 @@ export async function postMessageToChannel(req, res) {
   }
 
   try {
-    const newMessage = await postMessageModel(channelId, req.user.id, title, content);
+    const newMessage = await postMessageModel(
+      channelId,
+      req.user.id,
+      title,
+      content
+    );
     return res.status(201).json({
       success: true,
       data: newMessage,
