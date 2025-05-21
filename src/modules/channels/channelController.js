@@ -5,7 +5,7 @@ import {
   getMessagesInChannel as getMessagesModel,
   postMessageToChannel as postMessageModel,
 } from "./channelModel.js";
-import { addSubscription } from "../subscriptions/subscriptionController.js";
+import { subscribeToChannel } from "../subscriptions/subscriptionController.js";
 
 // Hämtar alla kanaler från databasen
 export async function fetchAllChannels(req, res) {
@@ -56,7 +56,7 @@ export async function addChannel(req, res) {
 
   try {
     const newChannel = await createChannel(channel_name, userId);
-    await addSubscription(userId, newChannel.id);
+    await subscribeToChannel(userId, newChannel.id);
 
     return res.status(201).json({
       success: true,
